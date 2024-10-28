@@ -7,3 +7,11 @@ export async function getCharacterByIndex(index: number): Promise<Character> {
   )
   return response.data
 }
+
+export async function searchCharacterByName(name:string): Promise<Character[]> {
+  const response = await axios.get<Character []>(
+    `https://potterapi-fedeperin.vercel.app/es/characters?search=${name}`
+  );
+  return response.data;
+}
+
