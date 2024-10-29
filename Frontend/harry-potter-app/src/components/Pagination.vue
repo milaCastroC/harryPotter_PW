@@ -7,7 +7,7 @@
         <li v-for="page in totalPages" class="page-item" @click="goToPage(page)" :class="{ active: page === currentPage }">
             <a class="page-link" href="#">{{ page }}</a>
         </li>
-        <li class="page-item">
+        <li class="page-item" @click="showAll">
             <a class="page-link" href="#">Mostrar todos</a>
         </li>
         <li class="page-item" @click="nextPage" :class="{ disabled: currentPage === totalPages }">
@@ -47,8 +47,8 @@ import { defineComponent, onMounted } from 'vue';
             };
 
             const showAll = () => {
-
-
+                characterStore.fetchAllCharacters(); 
+                characterStore.currentPage = 1; //restablece a la primera página
             };
 
             return {

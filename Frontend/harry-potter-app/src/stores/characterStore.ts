@@ -55,6 +55,23 @@ export const useCharacterStore = defineStore(
             }
         }
 
+        const fetchAllCharacters = async () => {
+            loading.value = true;
+            try {
+                characters.value = []; // Limpiar personajes existentes
+                const allCharacters = await getAllCharacters(); // Obtener todos los personajes
+                characters.value.push(...allCharacters); // Agregar todos los personajes al estado
+                totalCharacters.value = allCharacters.length; // Actualizar el total de personajes
+                currentPage.value = 1; // Restablecer a la primera página
+            } catch (err) {
+                console.error('Error al cargar todos los personajes:', err);
+                error.value = 'Error al cargar todos los personajes';
+            } finally {
+                loading.value = false;
+            }
+        };
+        
+
         const searchCharacter = async (name: string) => {
             loading.value = true; 
             try { 
@@ -83,6 +100,7 @@ export const useCharacterStore = defineStore(
             totalPages,
             initialize,
             fetchCharacters,
+            fetchAllCharacters,
             searchCharacter
         }
     }
