@@ -64,39 +64,47 @@ import { defineComponent, onMounted } from 'vue';
 
 </script>
 
+
 <style scoped>
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0; 
+}
 
-    .pagination{
-        display: flex;
-        list-style: none;
-        padding: 0;
-    }
+.page-link {
+    font-weight: bold;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #f0c040; 
+    background-color: #4b2c20;
+    border: 2px solid #f0c040; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; 
+}
 
-    .page-link {
-        font-weight: bold;
-        display: block;
-        padding: 8px 12px;
-        text-decoration: none;
-        color: #42b983; /* Vue green */
-        background-color: #f2f5f7; /* Soft blue-gray background */
-        border: 2px solid#42b983; /* Light border */
-        transition: background-color 0.3s, color 0.3s;
-    }
+.page-link:hover {
+    background-color: #f0c040; 
+    color: #4b2c20; 
+    transform: scale(1.05);
+}
 
-    .page-link:hover {
-        background-color: #42b983;
-        color: #ffffff;
-    }
+.page-item.active .page-link {
+    background-color: #8b0000; 
+    color: #ffffff;
+    border-color: #8b0000;
+}
 
-    .page-item.active .page-link {
-        background-color: #35495e; /* Vue dark blue */
-        color: #ffffff;
-        border-color: #35495e;
-    }
+.page-item {
+    margin: 0 5px;
+}
 
-    .page-item.disabled .page-link {
-        color: #cccccc;
-        cursor: not-allowed;
-    }
+.page-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
 
 </style>

@@ -58,11 +58,11 @@ export const useCharacterStore = defineStore(
         const fetchAllCharacters = async () => {
             loading.value = true;
             try {
-                characters.value = []; // Limpiar personajes existentes
-                const allCharacters = await getAllCharacters(); // Obtener todos los personajes
-                characters.value.push(...allCharacters); // Agregar todos los personajes al estado
-                totalCharacters.value = allCharacters.length; // Actualizar el total de personajes
-                currentPage.value = 1; // Restablecer a la primera página
+                characters.value = []; 
+                const allCharacters = await getAllCharacters(); 
+                characters.value.push(...allCharacters); 
+                totalCharacters.value = allCharacters.length; 
+                currentPage.value = 1; 
             } catch (err) {
                 console.error('Error al cargar todos los personajes:', err);
                 error.value = 'Error al cargar todos los personajes';
@@ -70,7 +70,6 @@ export const useCharacterStore = defineStore(
                 loading.value = false;
             }
         };
-        
 
         const searchCharacter = async (name: string) => {
             loading.value = true; 

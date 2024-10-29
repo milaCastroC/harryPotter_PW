@@ -37,21 +37,47 @@
   </script>
 
 <style scoped>
-input {  
-  margin-right: 10px; /* Espacio entre el input y el botón */
+body {
+  font-family: 'Garamond', serif; 
+  background-color: #f5f5f5; 
+}
+
+div {
+  margin-top: 20px; 
+}
+
+input {
+  margin-right: 10px;
+  padding: 10px; 
+  border: 2px solid #7f7f7f; 
+  border-radius: 4px;
+  font-size: 16px; 
+}
+
+input::placeholder {
+  color: #666; 
+  font-style: italic; 
 }
 
 button {
-  padding: 5px 10px; /* Tamaño del botón */
-  background-color: #42b983; /* Color de fondo */
-  color: white; /* Color del texto */
-  border: none; /* Sin borde */
-  border-radius: 4px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  padding: 10px 15px; 
+  background-color: #8B0000; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-weight: bold; 
+  transition: background-color 0.3s; 
 }
 
 button:hover {
-  background-color: #35495e; /* Color de fondo al pasar el ratón */
+  background-color: #f0c040; 
+}
+
+p {
+  color: #d9534f; 
+  font-weight: bold; 
 }
 </style>
+
   

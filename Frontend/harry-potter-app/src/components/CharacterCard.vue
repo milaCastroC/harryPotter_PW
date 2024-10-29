@@ -34,35 +34,52 @@ export default defineComponent({
 
 <style scoped>
 .character-card {
-  border: 1px solid #ddd;
-  padding: 16px;
+  border: 2px solid #4B0082;
+  padding: 20px;
   border-radius: 8px;
   text-align: center;
   max-width: 300px;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+  margin: 20px;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
 }
 
 .character-card img {
   width: 100%;
   height: auto;
-  border-radius: 5%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .character-card h2 {
-  margin-top: 8px;
-  font-size: 1.2em;
+  margin-top: 12px;
+  font-size: 1.5em;
+  color: #ffcc00;
 }
 
 .character-card p,
 .character-card ul {
   margin: 8px 0;
   font-size: 1em;
+  color: #f5f5f5;
 }
 
 .character-card ul {
   list-style: none;
   padding: 0;
 }
+
+.character-card li {
+  background-color: #444;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 3px 0;
+  color: #f5f5f5;
+}
 </style>
-
-
-
