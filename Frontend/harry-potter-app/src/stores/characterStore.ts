@@ -1,31 +1,52 @@
+//characterStore.ts
 import type { Character } from "@/interfaces/Character";
-import { getCharacterByIndex, searchCharacterByName } from "@/services/characterService";
-import axios from "axios";
+import { getAllCharacters, getCharacterByIndex, searchCharacterByName } from "@/services/characterService";
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 export const useCharacterStore = defineStore(
     'characterStore',() =>{
         const characters = ref<Character[]>([]);
         const loading = ref(false);
-        const error = ref<string | null>(null);
+        const error = ref<string | null>(null);  
         
         const currentPage = ref(1);
         const pageSize = ref(5);
+        const totalCharacters = ref(0);
+        const totalPages = computed(() => Math.ceil(totalCharacters.value / pageSize.value));
+        const isInitialized = ref(false);
+
+        const initialize = async () => {
+            if (!isInitialized.value) {
+                loading.value = true;
+                try {
+                    const allCharacters = await getAllCharacters();
+                    totalCharacters.value = allCharacters.length;
+                    isInitialized.value = true;
+                } catch (err) {
+                    console.error('Error initializing:', err);
+                    error.value = 'Error al inicializar los datos';
+                } finally {
+                    loading.value = false;
+                }
+            }
+        };
 
         const fetchCharacters = async () =>{
             loading.value = true;  
             try{
+                characters.value = [];
                 const newCharacters = [];
                 const startIndex = (currentPage.value-1) * pageSize.value + 1;
-                const endIndex = currentPage.value * pageSize.value;
+                const endIndex = Math.min(currentPage.value * pageSize.value, totalCharacters.value);  
 
-                for (let i = startIndex; i <= endIndex; i++) {
+                for (let i = startIndex; i <= endIndex; i++) {  
                     const character = await getCharacterByIndex(i); 
                     newCharacters.push(character);
+                    
                 }
                 characters.value.push(...newCharacters);
-                console.log(characters.value)
+                console.log(characters.value);
                 //currentPage.value++;
             }catch(err){
                 error.value = 'Error al Cargar la Data';
@@ -59,8 +80,11 @@ export const useCharacterStore = defineStore(
             loading,
             error,
             currentPage,
+            totalPages,
+            initialize,
             fetchCharacters,
             searchCharacter
         }
     }
 )
+ 

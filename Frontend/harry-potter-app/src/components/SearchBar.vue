@@ -43,7 +43,7 @@ input {
 
 button {
   padding: 5px 10px; /* Tamaño del botón */
-  background-color: #4CAF50; /* Color de fondo */
+  background-color: #42b983; /* Color de fondo */
   color: white; /* Color del texto */
   border: none; /* Sin borde */
   border-radius: 4px; /* Bordes redondeados */
@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049; /* Color de fondo al pasar el ratón */
+  background-color: #35495e; /* Color de fondo al pasar el ratón */
 }
 </style>
   
