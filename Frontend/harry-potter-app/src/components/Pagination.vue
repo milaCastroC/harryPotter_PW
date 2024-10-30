@@ -106,5 +106,9 @@ import { defineComponent, onMounted } from 'vue';
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
+.page-item.disabled .page-link {
+        color: #cccccc;
+        cursor: not-allowed;
+    }
 
 </style>

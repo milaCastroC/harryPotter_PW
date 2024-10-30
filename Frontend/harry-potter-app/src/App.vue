@@ -6,19 +6,18 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <img
-      alt="Vue logo"
+      alt="Harry potter logo logo"
       class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
+      src="@/assets/harry-potter-logo.png"
+      max-width="125"
+      height="300"
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+ 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
         <RouterLink to="/characters">Characters</RouterLink>
       </nav>
     </div>
@@ -29,6 +28,8 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style scoped>
 header {
+  padding-top: 50px;
+  flex-direction: column;
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -39,6 +40,8 @@ header {
 }
 
 nav {
+  display: flex;
+  justify-content: center;
   width: 100%;
   font-size: 12px;
   text-align: center;

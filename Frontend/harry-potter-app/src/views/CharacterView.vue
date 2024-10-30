@@ -56,3 +56,10 @@ export default defineComponent({
     
 })
 </script>
+
+<style scoped>
+
+.characters-container{
+    justify-content: center;
+}
+</style>
