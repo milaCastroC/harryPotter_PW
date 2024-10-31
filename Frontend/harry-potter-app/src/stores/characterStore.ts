@@ -37,8 +37,8 @@ export const useCharacterStore = defineStore(
             try{
                 characters.value = [];
                 const newCharacters = [];
-                const startIndex = (currentPage.value-1) * pageSize.value + 1;
-                const endIndex = Math.min(currentPage.value * pageSize.value, totalCharacters.value-1);  
+                const startIndex = (currentPage.value-1) * pageSize.value;
+                const endIndex = currentPage.value * pageSize.value - 1;  
 
                 for (let i = startIndex; i <= endIndex; i++) {  
                     const character = await getCharacterByIndex(i); 
