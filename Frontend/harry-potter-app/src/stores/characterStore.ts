@@ -38,16 +38,13 @@ export const useCharacterStore = defineStore(
                 characters.value = [];
                 const newCharacters = [];
                 const startIndex = (currentPage.value-1) * pageSize.value + 1;
-                const endIndex = Math.min(currentPage.value * pageSize.value, totalCharacters.value);  
+                const endIndex = Math.min(currentPage.value * pageSize.value, totalCharacters.value-1);  
 
                 for (let i = startIndex; i <= endIndex; i++) {  
                     const character = await getCharacterByIndex(i); 
                     newCharacters.push(character);
-                    
                 }
                 characters.value.push(...newCharacters);
-                console.log(characters.value);
-                //currentPage.value++;
             }catch(err){
                 error.value = 'Error al Cargar la Data';
             }finally{

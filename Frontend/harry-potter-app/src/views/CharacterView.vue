@@ -4,7 +4,9 @@
         <div class = "character-search">
             <SearchBar/>
         </div>
-
+        <div class="loading">
+            <LoadingScreen/>
+        </div>
         <div class="characters-container">
             <CharacterCard 
             v-for = "character in characters"
@@ -28,7 +30,6 @@ import LoadingScreen from '@/components/LoadingScreen.vue';
 import Pagination from '@/components/Pagination.vue';
 import SearchBar from '@/components/SearchBar.vue';
 import { useCharacterStore } from '@/stores/characterStore';
-import { storeToRefs } from 'pinia';
 import { computed, defineComponent, onMounted } from 'vue';
 
 
@@ -60,6 +61,14 @@ export default defineComponent({
 <style scoped>
 
 .characters-container{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.character-search{
+    display: flex;
     justify-content: center;
 }
 </style>

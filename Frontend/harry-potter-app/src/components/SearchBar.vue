@@ -3,7 +3,8 @@
     <input 
       type="text" 
       v-model="query" 
-      placeholder="Buscar personaje" 
+      placeholder="Buscar personaje"
+      @keyup.enter="searchCharacter" 
     />
     <button @click="searchCharacter">Buscar</button> 
     <p v-if="error">{{ error }}</p>
@@ -52,6 +53,7 @@ input {
   border: 2px solid #7f7f7f; 
   border-radius: 4px;
   font-size: 16px; 
+  width: 300px;
 }
 
 input::placeholder {
